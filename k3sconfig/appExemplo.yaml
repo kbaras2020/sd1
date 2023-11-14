@@ -3,27 +3,27 @@ kind: Namespace
 metadata:
   name: testes
   labels: 
-    app: exemplo
+    app: exemplo2
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: exemplo
+  name: exemplo2
   namespace: testes
   labels:
-    app: exemplo
+    app: exemplo2
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: exemplo
+      app: exemplo2
   template:
     metadata:
       labels:
-        app: exemplo
+        app: exemplo2
     spec:
       containers:
-      - name: exemplo
+      - name: exemplo2
         image: nginx:1.14.2
         ports:
         - containerPort: 80
@@ -31,10 +31,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: exemplo
+  name: exemplo2
   namespace: testes
   labels:
-    app: exemplo
+    app: exemplo2
 spec:
   type: NodePort
   ports:
@@ -42,4 +42,4 @@ spec:
     protocol: TCP
     nodePort: 30002
   selector:
-    app: exemplo
+    app: exemplo2
